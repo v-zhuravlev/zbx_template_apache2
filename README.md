@@ -1,0 +1,1 @@
+# zbx_template_apache2
