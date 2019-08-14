@@ -399,7 +399,7 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <preprocessing/>
                     <jmx_endpoint/>
                     <timeout>3s</timeout>
-                    <url>http://{HOST.CONN}:{$STUB_STATUS_PORT}/{$STUB_STATUS_PATH}</url>
+                    <url>{$STUB_STATUS_PROTOCOL}://{HOST.CONN}:{$STUB_STATUS_PORT}/{$STUB_STATUS_PATH}</url>
                     <query_fields/>
                     <posts/>
                     <status_codes/>
@@ -824,6 +824,10 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
             <discovery_rules/>
             <httptests/>
             <macros>
+                <macro>
+                    <macro>{$STUB_STATUS_PROTOCOL}</macro>
+                    <value>http</value>
+                </macro>
                 <macro>
                     <macro>{$STUB_STATUS_PATH}</macro>
                     <value>server-status?auto</value>
