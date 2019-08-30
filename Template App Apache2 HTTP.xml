@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>4.0</version>
-    <date>2018-10-16T14:10:45Z</date>
+    <version>4.2</version>
+    <date>2019-08-30T17:11:00Z</date>
     <groups>
         <group>
             <name>Templates/Applications</name>
@@ -63,9 +63,16 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>5</type>
-                            <params>BytesPerSec:\s+([0-9\.]+)
-\1</params>
+                            <type>1</type>
+                            <params>1024</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                        <step>
+                            <type>10</type>
+                            <params/>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -88,7 +95,7 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <verify_peer>0</verify_peer>
                     <verify_host>0</verify_host>
                     <master_item>
-                        <key>apache2_get_server_status</key>
+                        <key>apache2_total_kbytes</key>
                     </master_item>
                 </item>
                 <item>
@@ -133,6 +140,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>ConnsAsyncClosing:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -200,6 +209,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>ConnsAsyncKeepAlive:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -267,6 +278,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>ConnsAsyncWriting:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -334,6 +347,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>ConnsTotal:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -430,7 +445,7 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>!rps</units>
+                    <units>rps</units>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -457,9 +472,10 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <logtimefmt/>
                     <preprocessing>
                         <step>
-                            <type>5</type>
-                            <params>ReqPerSec:\s+([0-9\.]+)
-\1</params>
+                            <type>10</type>
+                            <params/>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -482,7 +498,7 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <verify_peer>0</verify_peer>
                     <verify_host>0</verify_host>
                     <master_item>
-                        <key>apache2_get_server_status</key>
+                        <key>apache2_total_accesses</key>
                     </master_item>
                 </item>
                 <item>
@@ -527,6 +543,77 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>Total Accesses:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item>
+                        <key>apache2_get_server_status</key>
+                    </master_item>
+                </item>
+                <item>
+                    <name>Total kBytes Served</name>
+                    <type>18</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>apache2_total_kbytes</key>
+                    <delay>0</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Apache2</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>5</type>
+                            <params>Total kBytes:\s+([0-9]+)
+\1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -594,6 +681,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>\bUptime:\s+([0-9.]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -661,6 +750,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>ServerVersion:\s+(.+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -728,6 +819,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>BusyWorkers:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -795,6 +888,8 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                             <type>5</type>
                             <params>IdleWorkers:\s+([0-9]+)
 \1</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
                         </step>
                     </preprocessing>
                     <jmx_endpoint/>
@@ -825,10 +920,6 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
             <httptests/>
             <macros>
                 <macro>
-                    <macro>{$STUB_STATUS_PROTOCOL}</macro>
-                    <value>http</value>
-                </macro>
-                <macro>
                     <macro>{$STUB_STATUS_PATH}</macro>
                     <value>server-status?auto</value>
                 </macro>
@@ -836,9 +927,14 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
                     <macro>{$STUB_STATUS_PORT}</macro>
                     <value>80</value>
                 </macro>
+                <macro>
+                    <macro>{$STUB_STATUS_PROTOCOL}</macro>
+                    <value>http</value>
+                </macro>
             </macros>
             <templates/>
             <screens/>
+            <tags/>
         </template>
     </templates>
     <triggers>
@@ -861,6 +957,38 @@ https://httpd.apache.org/docs/current/mod/mod_status.html</description>
         </trigger>
     </triggers>
     <graphs>
+        <graph>
+            <name>Apache2 Bytes served per second</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>0</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>0</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>5</drawtype>
+                    <color>1A7C11</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App Apache2 HTTP</host>
+                        <key>apache2_Bps</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
         <graph>
             <name>Apache2 current connections</name>
             <width>900</width>
