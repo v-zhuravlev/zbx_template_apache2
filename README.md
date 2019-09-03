@@ -1,3 +1,8 @@
+These Apache templates are now part of official Zabbix distribution, please use them instead if you have Zabbix 4.2 or later:
+
+- [HTTP agent template](https://git.zabbix.com/projects/ZBX/repos/zabbix/browse/templates/app/apache_http)
+- [Zabbix agent template](https://git.zabbix.com/projects/ZBX/repos/zabbix/browse/templates/app/apache_agent)
+
 # zbx_template_apache2
 
 Template App Apache2 for Zabbix 4.0 that works without any external scripts.  
